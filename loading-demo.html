@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hg - loading</title>
+
+    <style>
+        
+        .container-botoes-abertura-geral {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 101;
+        }
+        button {padding: 5px 8px; margin: 10px;}
+        .container-botoes-abertura-target {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            z-index: 101;
+            width: 300px;
+            height:100px;
+         
+            margin-left: -150px;
+            margin-top: -100px;
+        }
+        .container-target {
+            background: #f0fff4;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 500px;
+            height: 500px;
+            border: 1px solid #000000; 
+            margin-left: -250px;
+            margin-top: -150px;
+        }
+
+        .hg-loading {
+            background: #b1b1b1bd;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            opacity: 0;
+            transition: opacity .2
+        }
+
+        .hg-loading-int {
+            background: #b1b1b1bd;
+            width: 100%;
+            height: 100%;
+            position: static;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            opacity: 0;
+            transition: opacity .2s;
+            
+        }
+       
+        .hg-loading-int.fade , .hg-loading.fade{
+            opacity: 1;
+            transition: opacity .2s;
+        }
+        .loading-body {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 75px;
+            height: 75px;
+            margin-left: -35px;
+            margin-top: -35px;
+        }
+    
+    </style>
+    <script>
+        var abreFechaLoading = function(op){
+            if(op == 'open'){
+                $.showLoading();
+            }   
+            if(op == 'close'){
+                $.hideLoading(); 
+            }
+        }
+
+        var abreFechaLoadingTarget = function(op){
+            if(op == 'open'){
+                $.showLoading({imgLoading:'assets/img/loading1.svg', target:'containerInterno' });
+            }   
+            if(op == 'close'){
+                $.hideLoading(); 
+            }
+        }
+    </script>
+    
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+
+        <script src="assets/js/hg-loading.js"></script>
+</head>
+<body>
+    
+
+
+    <div class="container-botoes-abertura-geral">
+            Open loading in html body
+            <br>
+        <button onclick="abreFechaLoading('open')">Enable loading</button>
+        <button onclick="abreFechaLoading('close')">Desable loadding </button>
+    </div>
+
+
+    <div class="container-botoes-abertura-target">
+
+            Open the loading with the target container.
+            <br>
+
+            <button onclick="abreFechaLoadingTarget('open')">Enable loadding </button>
+            <button onclick="abreFechaLoadingTarget('close')">Desable loadding </button>
+    </div>
+    
+
+    <div class="container-target" id="containerInterno"></div>
+
+</body>
+</html>
