@@ -1,24 +1,44 @@
-# hg-loading - Plugin JQuery para loadings de pagina. 
+## Hg-loading - Plugin JQuery para loadings de pagina.
 
-Seja bem vindo !
+## Seja bem vindo !
 
-Esse plug-in exibe uma imagem de carregando podendo ser acionado e ocultado facilmente, a vantagem dessa implementação é que não necessitará de qualquer html na pagina. apenas a estilização.
+Esse plug-in tem como finalidade exibir uma imagem de carregando *"loading"*.
 
-Para uso do plugin é muito simples. 
+O acionamento do carregando, é uma chamada simples de javascript, e pode ser  acionado e ocultado facilmente.  
 
-Basta ter o Jquery importado, e também o script do plug-in, adicionalmente importe a estilização em seu css.
+Uma das vantagens de usar esse plugin é que o desenvolvedor nao necessita se preocupar com a codificação HTML, pois as tags são inseridas dinamicamente aos elementos da pagina.
 
-Caracteristicas basicas:
+## Como usar
 
-O plugin, depois de importado e carregado, voce poderá acionar aciona-lo a qualaquer momento usando o seguinte código:
+O requisito básico para uso do plugin, é o Jquery. chame-o **antes** de chamar js do plugin. pode ser inserido tanto no final da tag body, quanto no head do HTML.
+
+O download do plugin pode ser feito por aqui no git, e a chamada do JQuery pode ser feita por CDN, conforme o código demo.
 
 Para mostrar o loading:
 
-$.showLoading();
- 
+    $.showLoading();
+
 Para ocultar o loading:
- 
-$.hideLoading(); 
 
-Adicionalmente, você pode personalizar alguns itens do plugin, trocando a imagem do centro, ou colocando classes css que podem conter animações e muito mais. Segue lista de parametros.
+      $.hideLoading();
 
+Adicionalmente, você pode personalizar alguns itens do plugin, trocando a imagem do centro, ou colocando classes css que podem conter animações e muito mais.
+
+## Parametros possíveis
+
+    $.showLoading( 
+    { 
+	    body:  "", 
+	    // the dialog body html 
+	    loadingClass:  "", 
+	    // Additional css for ".Loading" ".fade",
+	    loadingDialogClass:  "", 
+	    // Additional css for ".Loading-dialog", like "Loading-lg" or "Loading-sm" for sizing 
+	    options:  null, 
+	    target:  "", 
+	    imgLoading:  "assets/img/loading.svg", 
+	    // Events: 
+	    onCreate:  null, // Callback, called after the Loading was created 
+	    onDispose:  null, // Callback, called after the Loading was disposed 
+	    onSubmit:  null  // Callback of $.showConfirm(), called after yes or no was pressed 
+	} );
