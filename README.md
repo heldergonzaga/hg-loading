@@ -1,8 +1,6 @@
 ## Hg-loading - Plugin JQuery para loadings de pagina.
 
-## Seja bem vindo !
-
-Esse plug-in tem como finalidade exibir uma imagem de carregando *"loading"*.
+Esse plug-in tem como objetivo exibir uma imagem de carregando *"loading"*.
 
 O acionamento do carregando, é uma chamada simples de javascript, e pode ser  acionado e ocultado facilmente.  
 
